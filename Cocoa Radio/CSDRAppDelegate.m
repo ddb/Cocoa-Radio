@@ -10,6 +10,7 @@
 #import "CSDRAppDelegate.h"
 #undef  CSDRAPPDELEGATE_M
 
+#import <Accelerate/Accelerate.h>
 #import <mach/mach_time.h>
 
 #import "CSDRAudioDevice.h"
@@ -91,6 +92,12 @@
 
 - (void)processRFBlock:(NSData *)inputData withDuration:(float)duration
 {
+    static NSMutableData* realData = nil;
+    static NSMutableData* imagData = nil;
+    static NSMutableData* floatData = nil;
+    static float *floatSamples = nil;
+    static int oldBlockSize = 0;
+
     @autoreleasepool {
         if (inputData == nil) {
             return;
@@ -105,20 +112,35 @@
         
         // Derive the block size from the input (2, 1-byte samples per frame)
         int blocksize = (int)[inputData length] / 2;
-        
-        // We need them to be floats (Real [Inphase] and Imaqinary [Quadrature])
-        NSMutableData *realData = [[NSMutableData alloc] initWithLength:sizeof(float) * blocksize];
-        NSMutableData *imagData = [[NSMutableData alloc] initWithLength:sizeof(float) * blocksize];
-        
+
+        if (realData == nil || oldBlockSize != blocksize) {
+            // We need them to be floats (Real [Inphase] and Imaqinary [Quadrature])
+            realData = [[NSMutableData alloc] initWithLength:sizeof(float) * blocksize];
+            imagData = [[NSMutableData alloc] initWithLength:sizeof(float) * blocksize];
+            floatData = [[NSMutableData alloc] initWithLength:sizeof(float) * (blocksize*2)];
+            floatSamples = [floatData mutableBytes];
+            oldBlockSize = blocksize;
+        }
+
         // All the vDSP routines (from the Accelerate framework)
         // need the complex data represented in a COMPLEX_SPLIT structure
         float *realp  = [realData mutableBytes];
         float *imagp  = [imagData mutableBytes];
+        float offset = -127;
+        float divisor = 128;
+
         
-        for (int i = 0; i < blocksize; i++) {
-            realp[i] = (float)(resultSamples[i*2 + 0] - 127) / 128;
-            imagp[i] = (float)(resultSamples[i*2 + 1] - 127) / 128;
-        }
+        vDSP_vfltu8(&resultSamples[0], 2, realp, 1, blocksize);
+        vDSP_vfltu8(&resultSamples[1], 2, imagp, 1, blocksize);
+        vDSP_vsadd(realp, 1, &offset, realp, 1, blocksize);
+        vDSP_vsdiv(realp, 1, &divisor, realp, 1, blocksize);
+        vDSP_vsadd(imagp, 1, &offset, imagp, 1, blocksize);
+        vDSP_vsdiv(imagp, 1, &divisor, imagp, 1, blocksize);
+
+//        for (int i = 0; i < blocksize; i++) {
+//            realp[i] = (float)(resultSamples[i*2 + 0] - 127) / 128;
+//            imagp[i] = (float)(resultSamples[i*2 + 1] - 127) / 128;
+//        }
 
         // Process the samples for visualization with the FFT
         [fftProcessor addSamplesReal:realData imag:imagData];
@@ -249,15 +271,15 @@
     
 // Create a new demodulator
     demodulatorLock = [[NSLock alloc] init];
-    [self setDemodulationScheme:@"WBFM"];
-    [self.demodulatorSelector setStringValue:@"WBFM"];
+    [self setDemodulationScheme:@"NBFM"];
+    [self.demodulatorSelector setStringValue:@"NBFM"];
 
 // Apply some additional preferences now that we're ready
-    [self setLoValue:144.190];
-    [self setTuningValue:144.390];
+    [self setLoValue:162.375];
+    [self setTuningValue:162.425];
     [self setBottomValue:-1.];
     [self setRange:3.];
-    [self setAverage:16];
+    [self setAverage:1];
     
 // Prepare the waterfall and spectrum display classes
     [[self waterfallView] setSampleRate:rfSampleRate];

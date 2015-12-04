@@ -66,11 +66,11 @@
     // This is the adjustment needed for odd or even sizes
     //    NSPoint adjustment = [self convertPointFromBase:adjustmentInPixels];
     
-    NSPoint basePoint = [openGLView convertPointToBase:point];
+    NSPoint basePoint = [openGLView convertPoint:point toView:nil];
     basePoint.x = round(basePoint.x) + adjustmentInPixels.x;
     basePoint.y = round(basePoint.y) + adjustmentInPixels.y;
     
-    return [openGLView convertPointFromBase:basePoint];
+    return [openGLView convertPoint:basePoint fromView:nil];
 }
 
 - (void)initGL
@@ -202,7 +202,7 @@
 - (void)drawDataInRect:(NSRect)rect
 {
     // use a yellow line for the spectrum
-    NSColor *lineColor = [[NSColor yellowColor] colorUsingColorSpaceName:NSDeviceRGBColorSpace];
+    NSColor *lineColor = [[NSColor greenColor] colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     double r, g, b, a;
     [lineColor getRed:&r green:&g blue:&b alpha:&a];
 
@@ -225,7 +225,7 @@
     int currentLine = [[[self appDelegate] waterfallView] currentLine];
     
     // Set the uniforms
-    [shader setIntValue:3
+    [shader setIntValue:1
              forUniform:@"persistance"];
 
 //    [shader setIntValue:currentLine
@@ -292,7 +292,9 @@
         // If uninitialized, the rect should be fully opaque
         glColor4f(0., 0., 0., 1.);
     } else {
-        glColor4f(0., 0., 0., .0625);
+//        glColor4f(0., 0., 0., 1.);
+//        glColor4f(0., 0., 0., .0625);
+        glColor4f(0., 0., 0., .625);
     }
 
     NSData *newData = [[self appDelegate] fftData];

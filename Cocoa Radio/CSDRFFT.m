@@ -12,7 +12,7 @@
 #import "dspprobes.h"
 
 #import <Accelerate/Accelerate.h>
-#import <vecLib/vForce.h>
+//#import <vecLib/vForce.h>
 
 @implementation CSDRFFT
 

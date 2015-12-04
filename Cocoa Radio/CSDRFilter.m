@@ -9,7 +9,7 @@
 #import "CSDRFilter.h"
 
 #import <Accelerate/Accelerate.h>
-#import <vecLib/vForce.h>
+//#import <vecLib/vForce.h>
 #import <mach/mach_time.h>
 
 #include "dspRoutines.h"

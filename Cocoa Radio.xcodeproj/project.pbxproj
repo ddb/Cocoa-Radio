@@ -19,7 +19,6 @@
 		3C27C5201581763E001FD108 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C27C51F1581763E001FD108 /* OpenGLView.m */; };
 		3C27C52215817A16001FD108 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C27C52115817A16001FD108 /* OpenGL.framework */; };
 		3C2E3DCF1582C4C3003BB124 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2E3DCE1582C4C3003BB124 /* Accelerate.framework */; };
-		3C44EA9B16062F3300CF8BFC /* rtl-sdr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C44EA9816062BB700CF8BFC /* rtl-sdr.framework */; };
 		3C48BB4E15C1F17E0047BA39 /* dspprobes.d in Sources */ = {isa = PBXBuildFile; fileRef = 3C48BB4D15C1F17E0047BA39 /* dspprobes.d */; };
 		3C4DE91F1607E9B300DCED2D /* preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C4DE91E1607E9B300DCED2D /* preferences.xib */; };
 		3C4FDB0015ED60B900D4B3AD /* CSDRDemod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4FDAFF15ED60B900D4B3AD /* CSDRDemod.m */; };
@@ -41,16 +40,16 @@
 		3C9DCD2815EEBE7B0032EDD9 /* CSDRFFT.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9DCD2715EEBE7B0032EDD9 /* CSDRFFT.m */; };
 		3CAC559E15D16F7C00FDFF2A /* README in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC559D15D16F7C00FDFF2A /* README */; };
 		3CADF1C4162C825E00B9FECC /* CSDRDemodAM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CADF1C3162C825E00B9FECC /* CSDRDemodAM.m */; };
-		3CBA547C1606D02500CC706C /* rtl-sdr.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C44EA9816062BB700CF8BFC /* rtl-sdr.framework */; };
 		3CE31D6D15F013DC00F0123B /* CSDRAudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE31D6C15F013DB00F0123B /* CSDRAudioDevice.m */; };
 		3CE31DB315F12E3800F0123B /* CSDRRingBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CE31DB215F12E3800F0123B /* CSDRRingBuffer.m */; };
 		3CE31DB515F130E500F0123B /* audioprobes.d in Sources */ = {isa = PBXBuildFile; fileRef = 3CE31DB415F130E500F0123B /* audioprobes.d */; };
+		67D923191C0FF3960094151C /* rtl-sdr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D923181C0FF2AA0094151C /* rtl-sdr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3C44EA9716062BB700CF8BFC /* PBXContainerItemProxy */ = {
+		67D923171C0FF2AA0094151C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3C44EA7216058D3700CF8BFC /* rtl-sdr.xcodeproj */;
+			containerPortal = 67D923131C0FF2AA0094151C /* rtl-sdr.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3C159966154DAEB00085A804;
 			remoteInfo = "rtl-sdr";
@@ -64,7 +63,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3CBA547C1606D02500CC706C /* rtl-sdr.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +105,6 @@
 		3C27C51F1581763E001FD108 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OpenGLView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3C27C52115817A16001FD108 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		3C2E3DCE1582C4C3003BB124 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		3C44EA7216058D3700CF8BFC /* rtl-sdr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "rtl-sdr.xcodeproj"; path = "../Softshell/rtl-sdr/rtl-sdr.xcodeproj"; sourceTree = "<group>"; };
 		3C48BB4D15C1F17E0047BA39 /* dspprobes.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = dspprobes.d; sourceTree = "<group>"; };
 		3C4DE91E1607E9B300DCED2D /* preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = preferences.xib; sourceTree = "<group>"; };
 		3C4FDAFE15ED60B900D4B3AD /* CSDRDemod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDRDemod.h; sourceTree = "<group>"; };
@@ -145,6 +142,7 @@
 		3CE31DB115F12E3800F0123B /* CSDRRingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSDRRingBuffer.h; sourceTree = "<group>"; };
 		3CE31DB215F12E3800F0123B /* CSDRRingBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDRRingBuffer.m; sourceTree = "<group>"; };
 		3CE31DB415F130E500F0123B /* audioprobes.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = audioprobes.d; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		67D923131C0FF2AA0094151C /* rtl-sdr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "rtl-sdr.xcodeproj"; path = "../Softshell/Softshell/rtl-sdr/rtl-sdr.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,11 +150,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D923191C0FF3960094151C /* rtl-sdr.framework in Frameworks */,
 				3C7CAB1A15BDC53600E78D83 /* AudioUnit.framework in Frameworks */,
 				3C7CAB1B15BDC53600E78D83 /* CoreAudioKit.framework in Frameworks */,
 				3C7CAB1715BDC53600E78D83 /* AudioToolbox.framework in Frameworks */,
 				3C7CAB1615BDC51900E78D83 /* CoreAudio.framework in Frameworks */,
-				3C44EA9B16062F3300CF8BFC /* rtl-sdr.framework in Frameworks */,
 				3C2E3DCF1582C4C3003BB124 /* Accelerate.framework in Frameworks */,
 				3C27C52215817A16001FD108 /* OpenGL.framework in Frameworks */,
 				3C27C4E915813348001FD108 /* Cocoa.framework in Frameworks */,
@@ -184,7 +182,7 @@
 		3C27C4D915813348001FD108 = {
 			isa = PBXGroup;
 			children = (
-				3C44EA7216058D3700CF8BFC /* rtl-sdr.xcodeproj */,
+				67D923131C0FF2AA0094151C /* rtl-sdr.xcodeproj */,
 				3C27C4EE15813348001FD108 /* Cocoa Radio */,
 				3C27C4E715813348001FD108 /* Frameworks */,
 				3C27C4E515813348001FD108 /* Products */,
@@ -284,14 +282,6 @@
 			name = OpenGL;
 			sourceTree = "<group>";
 		};
-		3C44EA9416062BB700CF8BFC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3C44EA9816062BB700CF8BFC /* rtl-sdr.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3C68163E162DCAEC00ED8372 /* Demodulators */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +318,14 @@
 				3C85B57D15A649E300803A7B /* NetworkSession.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		67D923141C0FF2AA0094151C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67D923181C0FF2AA0094151C /* rtl-sdr.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,8 +372,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3C44EA9416062BB700CF8BFC /* Products */;
-					ProjectRef = 3C44EA7216058D3700CF8BFC /* rtl-sdr.xcodeproj */;
+					ProductGroup = 67D923141C0FF2AA0094151C /* Products */;
+					ProjectRef = 67D923131C0FF2AA0094151C /* rtl-sdr.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -386,11 +384,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3C44EA9816062BB700CF8BFC /* rtl-sdr.framework */ = {
+		67D923181C0FF2AA0094151C /* rtl-sdr.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = "rtl-sdr.framework";
-			remoteRef = 3C44EA9716062BB700CF8BFC /* PBXContainerItemProxy */;
+			remoteRef = 67D923171C0FF2AA0094151C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -526,7 +524,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cocoa Radio/Cocoa Radio-Prefix.pch";
 				INFOPLIST_FILE = "Cocoa Radio/Cocoa Radio-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = CocoaRadio;
 				SDKROOT = "";
 				WRAPPER_EXTENSION = app;
@@ -543,7 +541,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cocoa Radio/Cocoa Radio-Prefix.pch";
 				INFOPLIST_FILE = "Cocoa Radio/Cocoa Radio-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_NAME = CocoaRadio;
 				SDKROOT = "";
 				WRAPPER_EXTENSION = app;

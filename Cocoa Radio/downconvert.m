@@ -9,7 +9,7 @@
 #include <stdio.h>
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
-#import <vecLib/vForce.h>
+//#import <vecLib/vForce.h>
 #import <mach/mach_time.h>
 
 #include "dspRoutines.h"
@@ -263,7 +263,7 @@ quadratureDemod(NSDictionary *inputDict, float gain, float offset)
     temp.realp = malloc([realIn length]);
     temp.imagp = malloc([imagIn length]);
     temp.realp[0] = lastReal;
-    temp.imagp[1] = lastImag;
+    temp.imagp[0] = lastImag;
     memcpy(&temp.realp[1], input.realp, [realIn length] - sizeof(float));
     memcpy(&temp.imagp[1], input.imagp, [imagIn length] - sizeof(float));
     
